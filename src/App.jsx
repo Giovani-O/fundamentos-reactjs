@@ -1,11 +1,15 @@
 // JSX - JavaScript + XML
 
 import { Post } from './Post.jsx';
+import { Header } from './components/Header.jsx';
+import './styles.css';
 
 export function App() {
 
   return (
     <div>
+      <Header />
+      
       <Post 
         author="Gio"
         content="L
