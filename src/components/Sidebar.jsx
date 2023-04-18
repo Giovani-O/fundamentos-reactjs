@@ -1,5 +1,5 @@
 import styles from './Sidebar.module.css';
-import { PencilLine } from 'phosphor-react';
+import { MoonStars, PencilLine } from 'phosphor-react';
 
 export function Sidebar() {
   return (
@@ -14,6 +14,13 @@ export function Sidebar() {
 
         <strong>Giovani de Oliveira</strong>
         <span>Web Developer</span>
+      </div>
+
+      <div class={styles.themes}>
+        <button>
+          <MoonStars size={24}/>
+          <span>Tema escuro</span>
+        </button>
       </div>
 
       <footer>

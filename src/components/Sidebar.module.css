@@ -40,7 +40,6 @@
 
 .sidebar footer {
   border-top: 1px solid var(--gray-600);
-  margin-top: 1.5rem;
   padding: 1.5rem 2rem 2rem;
 }
 
@@ -66,4 +65,34 @@
 .sidebar footer a:hover {
   background: var(--green-500);
   color: var(--white);
+}
+
+.themes {
+  border-top: 1px solid var(--gray-600);
+  margin-top: 1.5rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themes button {
+  background: transparent;
+  color: var(--green-500);
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color .1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.themes button:hover {
+  color: var(--green-300);
+}
+
+.themes span {
+  font-weight: bold;
 }
