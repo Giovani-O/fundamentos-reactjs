@@ -8,3 +8,16 @@
   gap: 2rem; /* Gap entre as colunas */
   align-items: flex-start;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%  ;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+  }
+}

@@ -115,3 +115,9 @@
 .commentList {
   margin-top: 2rem;
 }
+
+@media (max-width: 768px) {
+  .post {
+    border-radius: 0;
+  }
+}

@@ -88,3 +88,10 @@
 .themes span {
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    border-radius: 0;
+    border-bottom: 1px solid var(--gray-600);
+  }   
+}
