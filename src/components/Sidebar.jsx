@@ -1,3 +1,4 @@
+import { Avatar } from './Avatar';
 import styles from './Sidebar.module.css';
 import { MoonStars, PencilLine } from 'phosphor-react';
 
@@ -10,13 +11,13 @@ export function Sidebar() {
       />
     
       <div className={styles.profile}>
-        <img className={styles.avatar} src="https://avatars.githubusercontent.com/u/50748653?v=4" />
+        <Avatar src="https://github.com/giovani-o.png" />
 
         <strong>Giovani de Oliveira</strong>
         <span>Web Developer</span>
       </div>
 
-      <div class={styles.themes}>
+      <div className={styles.themes}>
         <button>
           <MoonStars size={24}/>
           <span>Tema escuro</span>
