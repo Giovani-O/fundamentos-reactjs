@@ -120,4 +120,8 @@
   .post {
     border-radius: 0;
   }
+
+  .post + .post { 
+    margin-top: .5rem;
+  }
 }

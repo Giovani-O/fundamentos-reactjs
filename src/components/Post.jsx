@@ -1,38 +1,44 @@
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
 
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+  const publicationDateFormatted = format(
+    publishedAt, "d 'de' LLLL 'às' HH:mm'h'", { locale: ptBR }
+  );
+
+  const publicationDateRelativeToNow = formatDistanceToNow(
+    publishedAt, { locale: ptBR , addSuffix: true }
+  );
+
   return (
     <article className={ styles.post }>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/giovani-o.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Giovani de Oliveira</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
-        <time 
-          title="11 de Maio às 11:13" 
-          dateTime="2022-05-11 08:13:30">Publicado há 1h
+        <time title={publicationDateFormatted} dateTime={publishedAt.toISOString()}>
+          { publicationDateRelativeToNow }
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
-        <p>
-          Dolor earum, doloribus atque quis, dolores aliquid sint maxime 
-          dolore voluptatem nihil mollitia. 
-          Officia molestiae distinctio nostrum fuga et, earum libero quia!
-        </p>
-
-        <p><a href="#">Lorem Ipsum.</a></p>
-        <p>
-          <a href="#">#WebDevelopment</a>{' '}
-          <a href="#">#React</a>
-        </p>
+        { content.map(line => {
+          if (line.type === 'paragraph') {
+            return <p key={content.indexOf(line)}>{line.content}</p>
+          }
+          else if (line.type === 'link') {
+            return <p key={content.indexOf(line)}><a href="#">{line.content}</a></p>
+          }
+        })}
       </div>
 
       <form className={styles.commentForm}>
